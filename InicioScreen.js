@@ -1,8 +1,11 @@
 // InicioScreen.js
 import React from 'react';
 import { View, StyleSheet, Image, TouchableOpacity, Text} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 const InicioScreen = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
     <View style={styles.headerContainer}>
@@ -13,7 +16,7 @@ const InicioScreen = () => {
     </View>
     <View style={styles.containerButtons}>
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Menu')}>
           <Image source={require('./assets/image1.png')} style={styles.buttonImage} />
           <Text style={styles.buttonText}>Menú</Text>
         </TouchableOpacity>

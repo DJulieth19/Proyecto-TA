@@ -28,8 +28,8 @@ const ConfiguracionScreen = () => {
         <Text style={styles.buttonText}>Icono</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
-        <Image source={require('./assets/Admin/pregunta.png')} style={styles.buttonImage} />
-        <Text style={styles.buttonText}>Preguntas</Text>
+        <Image source={require('./assets/perfil.png')} style={styles.buttonImage} />
+        <Text style={styles.buttonText}>Perfil</Text>
       </TouchableOpacity>
     </View>
 

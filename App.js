@@ -1,65 +1,27 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from './LoginScreen';
+import HomeAdmin from './HomeAdmin';
 
+import Menu from './Menu';
 
-// Importa tus componentes de las vistas adicionales
-import ConfiguracionScreen from './ConfiguracionScreen';
-import PerfilScreen from './PerfilScreen';
-import InicioScreen from './InicioScreen';
-
-const Tab = createBottomTabNavigator();
-
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false, // Oculta la barra de navegación en la parte superior
-        }}
-      >
-        <Tab.Screen name="Perfil" component={PerfilScreen}
-          options={{
-            tabBarLabel: () => null, // Elimina el nombre de la pestaña
-            tabBarIcon: () => (
-              <Image source={require('./assets/perfil.png')} style={styles.Icons} />
-            ),
-          }
-          }
-        />
-        <Tab.Screen name="Inicio" component={InicioScreen}
-          options={{
-            tabBarLabel: () => null, // Elimina el nombre de la pestaña
-            tabBarIcon: () => (
-              <Image source={require('./assets/home.png')} style={styles.Icons} />
-            ),
-          }
-          }
-        />
-        <Tab.Screen name="Configuración" component={ConfiguracionScreen}
-          options={{
-            tabBarLabel: () => null, // Elimina el nombre de la pestaña
-            tabBarIcon: () => (
-              <Image source={require('./assets/config.png')} style={styles.Icons} />
-            ),
-          }
-          }
-        />
-
-      </Tab.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen}  options={{ headerShown: false }}/>
+        <Stack.Screen name="HomeAdmin" component={HomeAdmin}  options={{ headerShown: false }}/>
+        <Stack.Screen name="Menu" component={Menu}  options={{ headerShown: false }}/>
+       
+      </Stack.Navigator>
     </NavigationContainer>
 
+  
   );
 };
 
-const styles = StyleSheet.create({
-  Icons: {
-    width: 35,
-    height: 35,
-  },
-});
 
 export default App;
